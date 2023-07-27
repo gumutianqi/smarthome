@@ -4,7 +4,7 @@ services:
     container_name: homeassistant
     image: "homeassistant/home-assistant:latest"
     volumes:
-			- /etc/localtime:/etc/localtime:ro
+		  - /etc/localtime:/etc/localtime:ro
       - ./config:/config
     restart: unless-stopped
     privileged: true
