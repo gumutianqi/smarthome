@@ -1,16 +1,17 @@
-version: '3.3'
+version: '3'
 services:
   alist:
-		container_name: alist
-    image: 'xhofe/alist:latest'
+    image: xhofe/alist:latest
+    container_name: alist
     restart: unless-stopped
-		network_mode: host
     volumes:
-			- '/etc/localtime:/etc/localtime:ro'
-      - '/etc/alist:/opt/alist/data'
+      - /etc/localtime:/etc/localtime:ro
+      - alist_data:/opt/alist/data
     ports:
       - '5244:5244'
     environment:
       - PUID=1000
       - PGID=1000
       - UMASK=022
+volumes:
+  alist_data: {}
